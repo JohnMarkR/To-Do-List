@@ -68,19 +68,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do List Item:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovT-tP-OQl">
+                                <rect key="frame" x="25" y="108" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihe-VF-W5Y">
+                                <rect key="frame" x="176" y="175" width="62" height="30"/>
+                                <state key="normal" title="Add Item"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="GIy-lN-nwn" eventType="touchUpInside" id="X2E-Pw-T8a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ovT-tP-OQl" secondAttribute="trailing" constant="20" symbolic="YES" id="8rz-Q7-97V"/>
                             <constraint firstItem="0FH-79-NgC" firstAttribute="trailing" secondItem="Hy8-aU-rXd" secondAttribute="trailing" constant="25" id="AOa-b7-IHU"/>
+                            <constraint firstItem="ihe-VF-W5Y" firstAttribute="top" secondItem="Hy8-aU-rXd" secondAttribute="bottom" constant="8" id="GrU-bt-d8f"/>
+                            <constraint firstItem="ihe-VF-W5Y" firstAttribute="centerX" secondItem="gq9-am-24r" secondAttribute="centerX" id="Nzg-Ig-nte"/>
                             <constraint firstItem="Hy8-aU-rXd" firstAttribute="leading" secondItem="0FH-79-NgC" secondAttribute="leading" constant="25" id="Px1-bE-sCp"/>
                             <constraint firstItem="Hy8-aU-rXd" firstAttribute="top" secondItem="0FH-79-NgC" secondAttribute="top" constant="73" id="XsU-5g-uNZ"/>
+                            <constraint firstItem="ovT-tP-OQl" firstAttribute="leading" secondItem="0FH-79-NgC" secondAttribute="leading" constant="25" id="cx5-Ir-6fP"/>
+                            <constraint firstItem="ovT-tP-OQl" firstAttribute="top" secondItem="0FH-79-NgC" secondAttribute="top" constant="44" id="ds3-QJ-p70"/>
+                            <constraint firstItem="Hy8-aU-rXd" firstAttribute="top" secondItem="ovT-tP-OQl" secondAttribute="bottom" constant="8" id="uYL-KJ-SfI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0FH-79-NgC"/>
                     </view>
+                    <connections>
+                        <outlet property="toDoItem" destination="Hy8-aU-rXd" id="z6T-nI-6DJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kqr-ty-HXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="158.77061469265368"/>
+            <point key="canvasLocation" x="202.89855072463769" y="158.1521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3pd-F4-KoE">
