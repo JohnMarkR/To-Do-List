@@ -40,7 +40,6 @@
 		5243EA39204B5B9A0093C153 = {
 			isa = PBXGroup;
 			children = (
-				5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */,
 				5243EA44204B5B9B0093C153 /* To Do List */,
 				5243EA43204B5B9B0093C153 /* Products */,
 			);
@@ -58,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				5243EA45204B5B9B0093C153 /* AppDelegate.swift */,
+				5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */,
 				5243EA49204B5B9B0093C153 /* Main.storyboard */,
 				5243EA4F204B5B9B0093C153 /* Assets.xcassets */,
 				5243EA51204B5B9B0093C153 /* LaunchScreen.storyboard */,

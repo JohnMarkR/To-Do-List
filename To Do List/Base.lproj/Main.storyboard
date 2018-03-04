@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Table View Controller-->
+        <!--To Do List-->
         <scene sceneID="0Zy-Wa-Ven">
             <objects>
                 <tableViewController id="JGF-JD-ZkR" customClass="ListTableViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,11 +32,13 @@
                             <outlet property="delegate" destination="JGF-JD-ZkR" id="DLH-cR-Uom"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rOM-1h-hOR"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="rOM-1h-hOR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GdK-0i-Db1"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqy-ZV-MPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231.19999999999999" y="153.37331334332833"/>
+            <point key="canvasLocation" x="-521" y="160"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3pd-F4-KoE">
@@ -54,7 +56,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYE-tT-ldu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1142" y="161"/>
+            <point key="canvasLocation" x="-1353" y="161"/>
         </scene>
     </scenes>
 </document>
