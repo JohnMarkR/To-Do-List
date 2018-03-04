@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y7Q-nz-a7o" id="Igh-g8-HmH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yII-8J-u0t">
+                                            <rect key="frame" x="8" y="3" width="361" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -33,12 +43,44 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do List" id="rOM-1h-hOR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GdK-0i-Db1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GdK-0i-Db1">
+                            <connections>
+                                <segue destination="GIy-lN-nwn" kind="show" id="IGy-Cz-gib"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqy-ZV-MPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-521" y="160"/>
+            <point key="canvasLocation" x="-567.20000000000005" y="160.56971514242881"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ww4-r5-Iun">
+            <objects>
+                <viewController id="GIy-lN-nwn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gq9-am-24r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type To Do List Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hy8-aU-rXd">
+                                <rect key="frame" x="25" y="137" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0FH-79-NgC" firstAttribute="trailing" secondItem="Hy8-aU-rXd" secondAttribute="trailing" constant="25" id="AOa-b7-IHU"/>
+                            <constraint firstItem="Hy8-aU-rXd" firstAttribute="leading" secondItem="0FH-79-NgC" secondAttribute="leading" constant="25" id="Px1-bE-sCp"/>
+                            <constraint firstItem="Hy8-aU-rXd" firstAttribute="top" secondItem="0FH-79-NgC" secondAttribute="top" constant="73" id="XsU-5g-uNZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0FH-79-NgC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqr-ty-HXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="158.77061469265368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3pd-F4-KoE">

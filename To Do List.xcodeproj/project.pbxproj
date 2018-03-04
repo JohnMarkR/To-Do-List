@@ -13,6 +13,7 @@
 		5243EA50204B5B9B0093C153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5243EA4F204B5B9B0093C153 /* Assets.xcassets */; };
 		5243EA53204B5B9B0093C153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5243EA51204B5B9B0093C153 /* LaunchScreen.storyboard */; };
 		5243EA5B204B6AAE0093C153 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */; };
+		52A7A080204C5AC800219E92 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7A07F204C5AC800219E92 /* AddToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5243EA52204B5B9B0093C153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5243EA54204B5B9B0093C153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		52A7A07F204C5AC800219E92 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				5243EA45204B5B9B0093C153 /* AppDelegate.swift */,
 				5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */,
 				5243EA49204B5B9B0093C153 /* Main.storyboard */,
+				52A7A07F204C5AC800219E92 /* AddToDoViewController.swift */,
 				5243EA4F204B5B9B0093C153 /* Assets.xcassets */,
 				5243EA51204B5B9B0093C153 /* LaunchScreen.storyboard */,
 				5243EA54204B5B9B0093C153 /* Info.plist */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A7A080204C5AC800219E92 /* AddToDoViewController.swift in Sources */,
 				5243EA5B204B6AAE0093C153 /* ListTableViewController.swift in Sources */,
 				5243EA4E204B5B9B0093C153 /* To_Do_List.xcdatamodeld in Sources */,
 				5243EA46204B5B9B0093C153 /* AppDelegate.swift in Sources */,
