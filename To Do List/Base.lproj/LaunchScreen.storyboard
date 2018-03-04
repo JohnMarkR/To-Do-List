@@ -24,10 +24,9 @@
                                 <color key="textColor" red="0.092143334448337555" green="0.29606491327285767" blue="0.66244202852249146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.6811383929" green="0.62664620540000004" blue="0.96542968750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.81478795505766932" green="0.8769402294580918" blue="0.9757201075553894" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tab-om-1Re" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="92" id="8Ik-F2-ATp"/>
                             <constraint firstItem="tab-om-1Re" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="J4J-rd-VKK"/>
