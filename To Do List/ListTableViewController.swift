@@ -11,7 +11,11 @@ import CoreData
 
 class ListTableViewController: UITableViewController
 {
-
+    
+    var task = [ToDoList]()
+    
+    @IBOutlet weak var addTaskButton: UIBarButtonItem!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -22,6 +26,16 @@ class ListTableViewController: UITableViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // This is to take care of a bug in iOS 11.2
+    // Where a button bar item will faded after being tapped.
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        addTaskButton.isEnabled = false
+        addTaskButton.isEnabled = true
+    }
+
+    
 
 
     // MARK: - Table view data source
@@ -33,8 +47,7 @@ class ListTableViewController: UITableViewController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-
-        return 1
+        return task.count
     }
 
 
@@ -101,5 +114,26 @@ class ListTableViewController: UITableViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
+        
+        do
+        {
+            let results = try managedContext.fetch(fetchRequest)
+            task = results as! [ToDoList]
+        }
+            
+        catch let error as NSError
+        {
+            print("Fetching Error: \(error.userInfo)")
+        }
+    }
+
 
 }

@@ -49,6 +49,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addTaskButton" destination="GdK-0i-Db1" id="iP3-kE-jyd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqy-ZV-MPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
