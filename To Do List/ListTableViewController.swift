@@ -14,17 +14,18 @@ class ListTableViewController: UITableViewController
     
     var task = [ToDoList]()
     
+    // Test create items
+    var toDoItems: [ToDo] = []
+    
     @IBOutlet weak var addTaskButton: UIBarButtonItem!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        // Create the test ones
+        toDoItems = testCreateTask()
     }
     
     // This is to take care of a bug in iOS 11.2
@@ -34,28 +35,42 @@ class ListTableViewController: UITableViewController
         addTaskButton.isEnabled = false
         addTaskButton.isEnabled = true
     }
+    
+    
+    func testCreateTask() -> [ToDo]
+    {
+        let call = ToDo()
+        call.textItem = "Call dad today"
+        
+        let walk = ToDo()
+        walk.textItem = "Walk the CAT"
+        
+        let test = ToDo()
+        test.textItem = "Test the app"
+        
+        return [call, walk, test]
+    }
 
     
 
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return task.count
+        return toDoItems.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let toDo = toDoItems[indexPath.row]
+        
+        cell.textLabel?.text = toDo.textItem
 
-        // Configure the cell...
+
 
         return cell
     }

@@ -13,6 +13,7 @@
 		5243EA50204B5B9B0093C153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5243EA4F204B5B9B0093C153 /* Assets.xcassets */; };
 		5243EA53204B5B9B0093C153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5243EA51204B5B9B0093C153 /* LaunchScreen.storyboard */; };
 		5243EA5B204B6AAE0093C153 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */; };
+		52A6548C204E1F9F00D295C6 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6548B204E1F9F00D295C6 /* ToDo.swift */; };
 		52A7A080204C5AC800219E92 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7A07F204C5AC800219E92 /* AddToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		5243EA52204B5B9B0093C153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5243EA54204B5B9B0093C153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5243EA5A204B6AAE0093C153 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		52A6548B204E1F9F00D295C6 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		52A7A07F204C5AC800219E92 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				5243EA51204B5B9B0093C153 /* LaunchScreen.storyboard */,
 				5243EA54204B5B9B0093C153 /* Info.plist */,
 				5243EA4C204B5B9B0093C153 /* To_Do_List.xcdatamodeld */,
+				52A6548B204E1F9F00D295C6 /* ToDo.swift */,
 			);
 			path = "To Do List";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A7A080204C5AC800219E92 /* AddToDoViewController.swift in Sources */,
+				52A6548C204E1F9F00D295C6 /* ToDo.swift in Sources */,
 				5243EA5B204B6AAE0093C153 /* ListTableViewController.swift in Sources */,
 				5243EA4E204B5B9B0093C153 /* To_Do_List.xcdatamodeld in Sources */,
 				5243EA46204B5B9B0093C153 /* AppDelegate.swift in Sources */,
