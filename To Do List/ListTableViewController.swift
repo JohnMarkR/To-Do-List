@@ -12,7 +12,7 @@ import CoreData
 class ListTableViewController: UITableViewController
 {
     
-    var task = [ToDoList]()
+//    var task = [ToDoList]()
     
     // Test create items
     var toDoItems: [ToDo] = []
@@ -28,8 +28,13 @@ class ListTableViewController: UITableViewController
         toDoItems = testCreateTask()
     }
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let otherView = segue.destination as! AddToDoViewController
+        otherView.homeView = self
+        
+    }
+
     func testCreateTask() -> [ToDo]
     {
         let call = ToDo()
@@ -44,9 +49,6 @@ class ListTableViewController: UITableViewController
         return [call, walk, test]
     }
 
-    
-
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -58,12 +60,8 @@ class ListTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
         let toDo = toDoItems[indexPath.row]
-        
         cell.textLabel?.text = toDo.textItem
-
-
 
         return cell
     }
@@ -123,25 +121,25 @@ class ListTableViewController: UITableViewController
     }
     */
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
-        
-        do
-        {
-            let results = try managedContext.fetch(fetchRequest)
-            task = results as! [ToDoList]
-        }
-            
-        catch let error as NSError
-        {
-            print("Fetching Error: \(error.userInfo)")
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool)
+//    {
+//        super.viewWillAppear(animated)
+//        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
+//        
+//        do
+//        {
+//            let results = try managedContext.fetch(fetchRequest)
+//            task = results as! [ToDoList]
+//        }
+//            
+//        catch let error as NSError
+//        {
+//            print("Fetching Error: \(error.userInfo)")
+//        }
+//    }
 
 
 }
