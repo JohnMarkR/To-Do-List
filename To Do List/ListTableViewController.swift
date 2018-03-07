@@ -28,13 +28,6 @@ class ListTableViewController: UITableViewController
         toDoItems = testCreateTask()
     }
     
-    // This is to take care of a bug in iOS 11.2
-    // Where a button bar item will faded after being tapped.
-    override func viewWillDisappear(_ animated: Bool)
-    {
-        addTaskButton.isEnabled = false
-        addTaskButton.isEnabled = true
-    }
     
     
     func testCreateTask() -> [ToDo]
