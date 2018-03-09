@@ -22,24 +22,26 @@ class DetailViewController: UIViewController
         itemLabel.text = selectedItem.textItem
     }
 
-    @IBAction func itemCompleted(_ sender: UIButton)
+    @IBAction func itemCompleted(_ sender: Any)
     {
         print("inside itemCompleted")
         
         var indexOfArray = 0
-        for todo in homeView.toDoItems
+        
+        for toDo in homeView.toDoItems
         {
             print("inside the for loop")
             
-            if todo.textItem == selectedItem.textItem
+            if toDo.textItem == selectedItem.textItem
             {
                 homeView.toDoItems.remove(at: indexOfArray)
-                print("We got it \(todo.textItem)")
+                print("We got it \(toDo.textItem)")
                 homeView.tableView.reloadData()
                 navigationController?.popViewController(animated: true)
                 break
             }
             indexOfArray += 1
         }
+        print("out of button code")
     }
 }
