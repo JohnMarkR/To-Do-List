@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,25 +69,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uLs-Gb-NPK">
-                                <rect key="frame" x="20" y="98" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whD-mK-DNj">
+                                <rect key="frame" x="20" y="160" width="0.0" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-Pe-SgA">
+                                <rect key="frame" x="151.66666666666666" y="212" width="110.99999999999997" height="30"/>
+                                <state key="normal" title="Completed Task"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fZc-Pe-SgA" firstAttribute="centerX" secondItem="syY-rU-YjZ" secondAttribute="centerX" id="2Tw-va-Mj2"/>
+                            <constraint firstItem="fZc-Pe-SgA" firstAttribute="top" secondItem="gS7-5U-0PO" secondAttribute="top" constant="148" id="2mj-Rz-SBP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="whD-mK-DNj" secondAttribute="trailing" constant="20" symbolic="YES" id="DVy-oi-yYI"/>
+                            <constraint firstItem="whD-mK-DNj" firstAttribute="leading" secondItem="syY-rU-YjZ" secondAttribute="leading" constant="20" id="Eh0-iI-qCV"/>
+                            <constraint firstItem="fZc-Pe-SgA" firstAttribute="top" secondItem="whD-mK-DNj" secondAttribute="bottom" constant="8" id="Lnt-is-oXW"/>
+                            <constraint firstItem="whD-mK-DNj" firstAttribute="top" secondItem="syY-rU-YjZ" secondAttribute="topMargin" constant="96" id="gti-3T-7My"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gS7-5U-0PO"/>
                     </view>
                     <navigationItem key="navigationItem" id="zZw-Tl-8tz"/>
                     <connections>
-                        <outlet property="itemCompleteTextField" destination="uLs-Gb-NPK" id="LSe-fo-zWT"/>
+                        <outlet property="itemLabel" destination="whD-mK-DNj" id="lZQ-CB-6mc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYj-Ms-bL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-552" y="788"/>
+            <point key="canvasLocation" x="-552.17391304347825" y="787.50000000000011"/>
         </scene>
         <!--To Do List-->
         <scene sceneID="b5Q-1J-EJT">
@@ -104,12 +116,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyD-vA-779">
+                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyD-vA-779">
                                             <rect key="frame" x="20" y="6" width="374" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textField>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -127,6 +139,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="d1k-oe-m0h" kind="show" identifier="ToDetails" id="bpg-jb-trE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8i-CR-gBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,4 +195,7 @@
             <point key="canvasLocation" x="-1381.1594202898552" y="787.50000000000011"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bpg-jb-trE"/>
+    </inferredMetricsTieBreakers>
 </document>

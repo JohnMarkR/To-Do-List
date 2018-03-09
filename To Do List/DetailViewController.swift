@@ -9,9 +9,10 @@
 import UIKit
 
 class DetailViewController: UIViewController
+
 {
     
-    @IBOutlet weak var itemCompleteTextField: UITextField!
+    @IBOutlet weak var itemLabel: UILabel!
     
     var todo: ToDo?
 
@@ -21,7 +22,7 @@ class DetailViewController: UIViewController
         
         if let detailItem = self.todo
         {
-            itemCompleteTextField.text = detailItem.textItem
+            itemLabel.text = detailItem.textItem
         }
 
     }
