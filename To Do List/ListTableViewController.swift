@@ -12,8 +12,6 @@ import CoreData
 class ListTableViewController: UITableViewController
 {
     
-//    var task = [ToDoList]()
-    
     // Test create items
     var toDoItems: [ToDo] = []
     
@@ -22,16 +20,26 @@ class ListTableViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        
+  
         // Create the test ones
         toDoItems = testCreateTask()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let otherView = segue.destination as! AddToDoViewController
-        otherView.homeView = self
+        if let otherView = segue.destination as? AddToDoViewController
+        {
+            otherView.homeView = self
+        }
+        
+        if let completedView = segue.destination as? DetailViewController
+        {
+            if let toDo = sender as? ToDo
+            {
+               completedView.selectedItem = toDo
+            }
+ 
+        }
         
     }
 
@@ -64,6 +72,12 @@ class ListTableViewController: UITableViewController
         cell.textLabel?.text = toDo.textItem
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let toDo = toDoItems[indexPath.row]
+        performSegue(withIdentifier: "ToDetails", sender: toDo)
     }
     
     
@@ -108,38 +122,5 @@ class ListTableViewController: UITableViewController
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-//    override func viewWillAppear(_ animated: Bool)
-//    {
-//        super.viewWillAppear(animated)
-//        
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
-//        
-//        do
-//        {
-//            let results = try managedContext.fetch(fetchRequest)
-//            task = results as! [ToDoList]
-//        }
-//            
-//        catch let error as NSError
-//        {
-//            print("Fetching Error: \(error.userInfo)")
-//        }
-//    }
-
-
+    */    
 }

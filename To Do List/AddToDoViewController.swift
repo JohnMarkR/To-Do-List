@@ -15,8 +15,6 @@ class AddToDoViewController: UIViewController
     
     var homeView = ListTableViewController()
     
-//    var task = [ToDoList]()
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -30,25 +28,6 @@ class AddToDoViewController: UIViewController
         homeView.tableView.reloadData()
         
         navigationController?.popViewController(animated: true)
-        
-        
-        
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let entity = NSEntityDescription.entity(forEntityName: "ToDoList", in: context)
-//
-//        let taskItem = ToDoList(entity: entity!, insertInto: context)
-//        taskItem.toDoItem = toDoItem.text
-//
-//        appDelegate.saveContext()
-//        task.append(taskItem)
-        
-        
-        
-        
-        
-        
-    }
-    // TODO: - Need Keyboard code to make it exit.
 
+    }
 }
