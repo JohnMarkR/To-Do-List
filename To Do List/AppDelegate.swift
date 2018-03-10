@@ -54,13 +54,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Add this to the first and try it:
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
     {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return true }
+        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return true }
         if topAsDetailController.itemLabel == nil
         {
             return true
         }
-        return false
+        return true
     }
 
     // MARK: - Core Data stack
