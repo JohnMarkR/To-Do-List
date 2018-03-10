@@ -20,6 +20,7 @@ class ListTableViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
   
         // Create the test ones
         toDoItems = testCreateTask()
@@ -85,5 +86,36 @@ class ListTableViewController: UITableViewController
         performSegue(withIdentifier: "ToDetails", sender: toDo)
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        let movedObject = self.toDoItems[sourceIndexPath.row]
+        toDoItems.remove(at: sourceIndexPath.row)
+        toDoItems.insert(movedObject, at: destinationIndexPath.row)
+        self.tableView.reloadData()
+    }
     
+    override func setEditing(_ editing: Bool, animated: Bool)
+    {
+        super.setEditing(editing, animated: animated)
+        
+        if editing
+        {
+            tableView.setEditing(true, animated: true)
+        }
+        
+        else
+        {
+            tableView.setEditing(false, animated: true)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            toDoItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
 }
