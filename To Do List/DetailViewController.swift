@@ -24,24 +24,19 @@ class DetailViewController: UIViewController
 
     @IBAction func itemCompleted(_ sender: Any)
     {
-        print("inside itemCompleted")
-        
         var indexOfArray = 0
         
         for toDo in homeView.toDoItems
         {
-            print("inside the for loop")
-            
             if toDo.textItem == selectedItem.textItem
             {
                 homeView.toDoItems.remove(at: indexOfArray)
-                print("We got it \(toDo.textItem)")
                 homeView.tableView.reloadData()
                 navigationController?.popViewController(animated: true)
                 break
             }
+            
             indexOfArray += 1
         }
-        print("out of button code")
     }
 }
