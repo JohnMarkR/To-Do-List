@@ -15,6 +15,8 @@ class ListTableViewController: UITableViewController
     // Test create items
     var toDoItems: [ToDo] = []
     
+    var item = [NSManagedObject]()
+    
     @IBOutlet weak var addTaskButton: UIBarButtonItem!
     
     override func viewDidLoad()
@@ -24,6 +26,14 @@ class ListTableViewController: UITableViewController
   
         // Create the test ones
         toDoItems = testCreateTask()
+//        getToDoItems()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        getToDoItems()
+        tableView.reloadData()
     }
     
     // MARK: - Segue
@@ -46,8 +56,7 @@ class ListTableViewController: UITableViewController
         }
         
     }
-
-    
+ 
     // MARK: - Task to create test data
     
     func testCreateTask() -> [ToDo]
@@ -62,6 +71,25 @@ class ListTableViewController: UITableViewController
         test.textItem = "Test the app"
         
         return [call, walk, test]
+    }
+    
+    func getToDoItems()
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
+        
+        do
+        {
+            let results = try managedContext.fetch(fetchRequest)
+            item = results as! [NSManagedObject]
+            print(item)
+        }
+            
+        catch let error as NSError
+        {
+            print("Fetching Error: \(error.userInfo)")
+        }
     }
 
     // MARK: - Table view data source
