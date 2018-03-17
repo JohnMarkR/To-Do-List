@@ -19,6 +19,7 @@ class ListTableViewController: UITableViewController
     {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
+
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -117,8 +118,23 @@ class ListTableViewController: UITableViewController
     {
         if editingStyle == .delete
         {
-            toDoItems.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let commit = toDoItems[indexPath.row]
+            
+            managedContext.delete(commit)
+            
+            do
+            {
+                try managedContext.save()
+                tableView.reloadData()
+            }
+                
+            catch let error as NSError
+            {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+
         }
     }
 }
