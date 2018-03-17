@@ -12,32 +12,26 @@ import CoreData
 class DetailViewController: UIViewController
 {
     @IBOutlet weak var itemLabel: UILabel!
-    
     var homeView = ListTableViewController()
-    var selectedItem = ToDo()
-
+    var selectedItem: ToDoList?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        itemLabel.text = selectedItem.textItem
         navigationItem.title = "Completed"
+        itemLabel.text = selectedItem?.toDoItem
+        
     }
 
     @IBAction func itemCompleted(_ sender: Any)
     {
-        var indexOfArray = 0
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
-        for toDo in homeView.toDoItems
+        if let toDoListItems = selectedItem
         {
-            if toDo.textItem == selectedItem.textItem
-            {
-                homeView.toDoItems.remove(at: indexOfArray)
-                homeView.tableView.reloadData()
-                navigationController?.popViewController(animated: true)
-                break
-            }
-            
-            indexOfArray += 1
-        }
+            managedContext.delete(toDoListItems)
+            navigationController?.popViewController(animated: true)
+        }        
     }
 }

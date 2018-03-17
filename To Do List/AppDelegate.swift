@@ -26,32 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication)
-    {
-
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication)
-    {
-
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication)
-    {
-
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication)
-    {
-
-    }
-
     func applicationWillTerminate(_ application: UIApplication)
     {
         self.saveContext()
     }
     
-    // Add this to the first and try it:
+    // MARK: - Split View Controller
+    
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
     {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return true }
@@ -67,9 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     lazy var persistentContainer: NSPersistentContainer =
         {
-
-        let container = NSPersistentContainer(name: "To_Do_List")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            let container = NSPersistentContainer(name: "To_Do_List")
+            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             
             if let error = error as NSError?
             {
@@ -81,9 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext ()
+    {
         let context = persistentContainer.viewContext
-        if context.hasChanges {
+        if context.hasChanges
+        {
             do
             {
                 try context.save()
@@ -91,12 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             
             catch
             {
-
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-
 }
 

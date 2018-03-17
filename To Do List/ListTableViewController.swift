@@ -11,11 +11,7 @@ import CoreData
 
 class ListTableViewController: UITableViewController
 {
-    
-    // Test create items
-    var toDoItems: [ToDo] = []
-    
-    var item = [NSManagedObject]()
+    var toDoItems: [ToDoList] = []
     
     @IBOutlet weak var addTaskButton: UIBarButtonItem!
     
@@ -23,12 +19,7 @@ class ListTableViewController: UITableViewController
     {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-  
-        // Create the test ones
-        toDoItems = testCreateTask()
-//        getToDoItems()
     }
-    
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -40,6 +31,7 @@ class ListTableViewController: UITableViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        
         if let otherView = segue.destination as? AddToDoViewController
         {
             otherView.homeView = self
@@ -47,7 +39,7 @@ class ListTableViewController: UITableViewController
         
         if let completedView = segue.destination as? DetailViewController
         {
-            if let toDo = sender as? ToDo
+            if let toDo = sender as? ToDoList
             {
                completedView.selectedItem = toDo
                completedView.homeView = self
@@ -56,36 +48,21 @@ class ListTableViewController: UITableViewController
         }
         
     }
- 
-    // MARK: - Task to create test data
-    
-    func testCreateTask() -> [ToDo]
-    {
-        let call = ToDo()
-        call.textItem = "Call dad today"
-        
-        let walk = ToDo()
-        walk.textItem = "Walk the CAT"
-        
-        let test = ToDo()
-        test.textItem = "Test the app"
-        
-        return [call, walk, test]
-    }
     
     func getToDoItems()
     {
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoList")
-        
+
         do
         {
             let results = try managedContext.fetch(fetchRequest)
-            item = results as! [NSManagedObject]
-            print(item)
+            toDoItems = results as! [ToDoList]
+            print(toDoItems)
         }
-            
+
         catch let error as NSError
         {
             print("Fetching Error: \(error.userInfo)")
@@ -99,12 +76,11 @@ class ListTableViewController: UITableViewController
         return toDoItems.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let toDo = toDoItems[indexPath.row]
-        cell.textLabel?.text = toDo.textItem
+        cell.textLabel?.text = toDo.value(forKey: "toDoItem") as? String
         return cell
     }
     
@@ -145,5 +121,4 @@ class ListTableViewController: UITableViewController
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
 }
