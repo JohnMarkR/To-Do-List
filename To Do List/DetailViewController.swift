@@ -20,7 +20,6 @@ class DetailViewController: UIViewController
         super.viewDidLoad()
         navigationItem.title = "Completed"
         itemLabel.text = selectedItem?.toDoItem
-        
     }
 
     @IBAction func itemCompleted(_ sender: Any)

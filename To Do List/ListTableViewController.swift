@@ -19,6 +19,7 @@ class ListTableViewController: UITableViewController
     {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
+        tableView.allowsSelectionDuringEditing = true
 
     }
     
@@ -61,7 +62,6 @@ class ListTableViewController: UITableViewController
         {
             let results = try managedContext.fetch(fetchRequest)
             toDoItems = results as! [ToDoList]
-            print(toDoItems)
         }
 
         catch let error as NSError
@@ -127,12 +127,13 @@ class ListTableViewController: UITableViewController
             do
             {
                 try managedContext.save()
+                toDoItems.remove(at: indexPath.row)
                 tableView.reloadData()
             }
                 
             catch let error as NSError
             {
-                print("Could not save. \(error), \(error.userInfo)")
+                print("Could not save the database after a delete. \(error), \(error.userInfo)")
             }
 
         }

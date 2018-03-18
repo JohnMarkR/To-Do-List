@@ -11,9 +11,17 @@ import CoreData
 
 class AddToDoViewController: UIViewController
 {
+
     @IBOutlet weak var toDoItem: UITextField!
     var homeView = ListTableViewController()
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        toDoItem.becomeFirstResponder()
+
+    }
+
     @IBAction func addTapped(_ sender: UIButton)
     {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,4 +34,5 @@ class AddToDoViewController: UIViewController
         appDelegate.saveContext()
         navigationController?.popViewController(animated: true)
     }
+    
 }
